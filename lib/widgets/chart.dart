@@ -19,7 +19,8 @@ class Chart extends StatelessWidget {
           totalSum += recentTransations[i].amount;
         }
       }
-
+      print(totalSum);
+      print(DateFormat.E(weekDay));
       return {"day": DateFormat.E(weekDay), "amonut": totalSum};
     });
   }
