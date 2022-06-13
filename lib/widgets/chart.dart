@@ -1,3 +1,5 @@
+import 'package:expense_app/widgets/chart_bar.dart';
+
 import '../models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -20,7 +22,10 @@ class Chart extends StatelessWidget {
         }
       }
 
-      return {"day": DateFormat.E().format(weekDay), "amonut": totalSum};
+      return {
+        "day": DateFormat.E().format(weekDay).substring(0, 1),
+        "amount": totalSum
+      };
     });
   }
 
@@ -31,7 +36,7 @@ class Chart extends StatelessWidget {
       margin: EdgeInsets.all(18),
       child: Row(
         children: groupedTransactionValues.map((data) {
-          return Container();
+          return ChartBar(data['day'], data['amount'], null);
         }).toList(),
       ),
     );
