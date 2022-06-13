@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
-import 'dart:ui';
-
-import 'package:expense_app/widgets/transaction_list.dart';
+import './widgets/chart.dart';
+import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
 import './models/transaction.dart';
@@ -92,9 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: sized_box_for_whitespace
             Container(
               width: double.infinity,
-              child: Card(
-                child: Text("CHART"),
-              ),
+              child: Chart(),
             ),
             TransactionList(_userTransactions),
           ],
