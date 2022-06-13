@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: sized_box_for_whitespace
             Container(
               width: double.infinity,
-              child: Chart(),
+              child: Chart(_userTransactions),
             ),
             TransactionList(_userTransactions),
           ],
