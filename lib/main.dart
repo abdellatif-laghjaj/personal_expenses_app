@@ -15,6 +15,10 @@ class MyApp extends StatelessWidget {
         // ignore: deprecated_member_use
         accentColor: Colors.amber,
         fontFamily: "Poppins",
+        appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light()
+                .textTheme
+                .copyWith(headline6: TextStyle(fontSize: 20))),
       ),
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
