@@ -29,6 +29,12 @@ class Chart extends StatelessWidget {
     });
   }
 
+  double get maxSpending {
+    return groupedTransactionValues.fold(0.0, (sum, item) {
+      return sum + item['amount'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -36,7 +42,8 @@ class Chart extends StatelessWidget {
       margin: EdgeInsets.all(18),
       child: Row(
         children: groupedTransactionValues.map((data) {
-          return ChartBar(data['day'], data['amount'], null);
+          return ChartBar(
+              data['day'], data['amount'], maxSpending / data['amount']);
         }).toList(),
       ),
     );
