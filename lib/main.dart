@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
 import 'package:expense_app/widgets/transaction_list.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
 import './models/transaction.dart';
@@ -16,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.indigo,
         // ignore: deprecated_member_use
         accentColor: Colors.amber,
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: "Poppins",
       ),
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
