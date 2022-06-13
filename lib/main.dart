@@ -16,9 +16,9 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.amber,
         fontFamily: "Poppins",
         appBarTheme: AppBarTheme(
-            textTheme: ThemeData.light()
-                .textTheme
-                .copyWith(headline6: TextStyle(fontSize: 20))),
+            // ignore: deprecated_member_use
+            textTheme: ThemeData.light().textTheme.copyWith(
+                headline6: TextStyle(fontFamily: "Poppins", fontSize: 20))),
       ),
       debugShowCheckedModeBanner: false,
       title: 'Personal Expenses',
