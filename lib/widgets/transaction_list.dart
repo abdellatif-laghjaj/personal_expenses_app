@@ -42,6 +42,7 @@ class TransactionList extends StatelessWidget {
                       transactions[index].title,
                       style: TextStyle(
                         fontSize: 18,
+                        fontFamily: "Poppins",
                         fontWeight: FontWeight.bold,
                       ),
                     ),

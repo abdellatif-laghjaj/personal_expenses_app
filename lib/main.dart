@@ -1,4 +1,6 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
+import 'dart:ui';
+
 import 'package:expense_app/widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
