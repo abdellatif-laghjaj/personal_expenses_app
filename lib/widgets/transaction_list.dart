@@ -35,46 +35,31 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemCount: transactions.length,
               itemBuilder: (context, index) {
-                return Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(16),
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(99)),
-                          color: Theme.of(context).primaryColor,
-                        ),
+                return ListTile(
+                  leading: CircleAvatar(
+                    radius: 34,
+                    child: Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: FittedBox(
                         child: Text(
-                          '\$${transactions[index].amount.toStringAsFixed(2)}',
+                          "\$${transactions[index].amount.toStringAsFixed(2)}",
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            fontSize: 14,
                           ),
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            transactions[index].title,
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontFamily: "Poppins",
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            DateFormat.yMMMMEEEEd()
-                                .format(transactions[index].date),
-                            style: TextStyle(
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromARGB(255, 131, 131, 131),
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+                    ),
+                  ),
+                  title: Text(
+                    transactions[index].title,
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  subtitle: Text(
+                    DateFormat.yMMMd().format(transactions[index].date),
+                  ),
+                  trailing: Icon(
+                    Icons.remove_circle_sharp,
+                    color: Colors.red,
                   ),
                 );
               },

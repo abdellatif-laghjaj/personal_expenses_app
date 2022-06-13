@@ -82,6 +82,9 @@ flutter:
         - asset: assets/fonts/poppins_light.otf
         - asset: assets/fonts/poppins_bold.otf
           weight: 700
+    - family: PoppinsMed
+      fonts:
+        - asset: assets/fonts/poppins_med.otf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

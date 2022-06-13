@@ -16,6 +16,12 @@ class MyApp extends StatelessWidget {
         // ignore: deprecated_member_use
         accentColor: Colors.amber,
         fontFamily: "Poppins",
+        textTheme: TextTheme(
+          headline6: TextStyle(
+            fontFamily: "PoppinsMed",
+            fontSize: 20,
+          ),
+        ),
         appBarTheme: AppBarTheme(
             // ignore: deprecated_member_use
             textTheme: ThemeData.light().textTheme.copyWith(
