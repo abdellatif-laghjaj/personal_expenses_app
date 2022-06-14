@@ -44,66 +44,66 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _showChart = false;
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: "t1",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t2",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t3",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t4",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t5",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t6",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t7",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t8",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t9",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: "t10",
-      title: "Memory DDR4",
-      amount: 27.84,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: "t1",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t2",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t3",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t4",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t5",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t6",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t7",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t8",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t9",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: "t10",
+    //   title: "Memory DDR4",
+    //   amount: 27.84,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   List<Transaction> get _recentTransactions {
