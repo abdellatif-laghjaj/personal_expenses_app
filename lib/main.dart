@@ -44,66 +44,66 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool _showChart = false;
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: "t1",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t2",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t3",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t4",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t5",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t6",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t7",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t8",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t9",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: "t10",
-    //   title: "Memory DDR4",
-    //   amount: 27.84,
-    //   date: DateTime.now(),
-    // ),
+    Transaction(
+      id: "t1",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t2",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t3",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t4",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t5",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t6",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t7",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t8",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t9",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t10",
+      title: "Memory DDR4",
+      amount: 27.84,
+      date: DateTime.now(),
+    ),
   ];
 
   List<Transaction> get _recentTransactions {
@@ -152,6 +152,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final _isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
     final appBar = AppBar(
       title: Text('Personal Expenses'),
       actions: [
@@ -161,6 +163,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ],
     );
+    final txListWidget = Container(
+      height: (MediaQuery.of(context).size.height -
+              appBar.preferredSize.height -
+              MediaQuery.of(context).padding.top) *
+          0.8,
+      child: TransactionList(_userTransactions, _deleteTransaction),
+    );
     return Scaffold(
       appBar: appBar,
       body: SingleChildScrollView(
@@ -168,15 +177,16 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            SwitchListTile(
-              title: Text('Show Chart'),
-              value: _showChart,
-              onChanged: (val) {
-                setState(() {
-                  _showChart = val;
-                });
-              },
-            ),
+            if (_isLandscape)
+              SwitchListTile(
+                title: Text('Show Chart'),
+                value: _showChart,
+                onChanged: (val) {
+                  setState(() {
+                    _showChart = val;
+                  });
+                },
+              ),
             // ignore: sized_box_for_whitespace
             _showChart
                 ? Container(
@@ -186,14 +196,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         0.7,
                     child: Chart(_recentTransactions),
                   )
-                : Container(
-                    height: (MediaQuery.of(context).size.height -
-                            appBar.preferredSize.height -
-                            MediaQuery.of(context).padding.top) *
-                        0.8,
-                    child:
-                        TransactionList(_userTransactions, _deleteTransaction),
-                  ),
+                : txListWidget,
           ],
         ),
       ),
