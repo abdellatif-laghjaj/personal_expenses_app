@@ -40,7 +40,9 @@ class _NewTransactionState extends State<NewTransaction> {
       lastDate: DateTime.now(),
     ).then((pickedDate) {
       if (pickedDate == null) return;
-      _selectedDate = pickedDate;
+      setState(() {
+        _selectedDate = pickedDate;
+      });
     });
   }
 
@@ -68,14 +70,14 @@ class _NewTransactionState extends State<NewTransaction> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(top: 14),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     _selectedDate == null
                         ? "No Date Chosen"
-                        : DateFormat.yMd().format(_selectedDate),
+                        : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
                     style: TextStyle(
                       fontSize: 18,
                     ),
