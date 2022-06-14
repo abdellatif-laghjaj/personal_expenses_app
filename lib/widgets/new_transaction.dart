@@ -16,7 +16,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final amountControler = TextEditingController();
 
-  void submitData() {
+  void _submitData() {
     final enteredTitle = titleControler.text;
     final enteredAmount = double.parse(amountControler.text);
 
@@ -32,6 +32,15 @@ class _NewTransactionState extends State<NewTransaction> {
     Navigator.of(context).pop();
   }
 
+  void _presentDatePicker() {
+    showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2019),
+      lastDate: DateTime.now(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -42,7 +51,7 @@ class _NewTransactionState extends State<NewTransaction> {
           children: [
             TextField(
               controller: titleControler,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
               decoration: InputDecoration(
                 labelText: "Title",
               ),
@@ -50,7 +59,7 @@ class _NewTransactionState extends State<NewTransaction> {
             TextField(
               keyboardType: TextInputType.number,
               controller: amountControler,
-              onSubmitted: (_) => submitData(),
+              onSubmitted: (_) => _submitData(),
               decoration: InputDecoration(
                 labelText: "Amount",
               ),
@@ -75,7 +84,7 @@ class _NewTransactionState extends State<NewTransaction> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: _presentDatePicker,
                   ),
                 ],
               ),
@@ -84,7 +93,7 @@ class _NewTransactionState extends State<NewTransaction> {
               margin: EdgeInsets.only(top: 10),
               // ignore: deprecated_member_use
               child: RaisedButton(
-                onPressed: () => submitData(),
+                onPressed: () => _submitData(),
                 child: Text("Add Transaction"),
                 color: Theme.of(context).primaryColor,
                 textColor: Theme.of(context).textTheme.button.color,
