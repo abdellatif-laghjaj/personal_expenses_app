@@ -1,20 +1,11 @@
 // ignore_for_file: prefer_const_constructors, must_be_immutable
-import 'package:flutter/services.dart';
-
 import './widgets/chart.dart';
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
 import 'package:flutter/material.dart';
 import './models/transaction.dart';
 
-void main() {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp,
-  //   DeviceOrientation.portraitDown,
-  // ]);
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -192,14 +183,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     height: (MediaQuery.of(context).size.height -
                             appBar.preferredSize.height -
                             MediaQuery.of(context).padding.top) *
-                        0.3,
+                        0.7,
                     child: Chart(_recentTransactions),
                   )
                 : Container(
                     height: (MediaQuery.of(context).size.height -
                             appBar.preferredSize.height -
                             MediaQuery.of(context).padding.top) *
-                        0.7,
+                        0.8,
                     child:
                         TransactionList(_userTransactions, _deleteTransaction),
                   ),
