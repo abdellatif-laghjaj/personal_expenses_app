@@ -78,10 +78,6 @@ class _NewTransactionState extends State<NewTransaction> {
                       _selectedDate == null
                           ? "No Date Chosen"
                           : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      ),
                     ),
                   ),
                   FlatButton(
@@ -89,7 +85,6 @@ class _NewTransactionState extends State<NewTransaction> {
                     child: Text(
                       "Select Date",
                       style: TextStyle(
-                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
