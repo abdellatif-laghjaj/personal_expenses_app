@@ -170,13 +170,15 @@ class _MyHomePageState extends State<MyHomePage> {
             // ignore: sized_box_for_whitespace
             Container(
               height: (MediaQuery.of(context).size.height -
-                      appBar.preferredSize.height) *
+                      appBar.preferredSize.height -
+                      MediaQuery.of(context).padding.top) *
                   0.4,
               child: Chart(_recentTransactions),
             ),
             Container(
               height: (MediaQuery.of(context).size.height -
-                      appBar.preferredSize.height) *
+                      appBar.preferredSize.height -
+                      MediaQuery.of(context).padding.top) *
                   0.6,
               child: TransactionList(_userTransactions, _deleteTransaction),
             ),
