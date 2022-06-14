@@ -67,9 +67,13 @@ class _NewTransactionState extends State<NewTransaction> {
                     ),
                   ),
                   FlatButton(
+                    textColor: Theme.of(context).primaryColor,
                     child: Text(
                       "Select Date",
-                      style: Theme.of(context).textTheme.headline6,
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     onPressed: () {},
                   ),
