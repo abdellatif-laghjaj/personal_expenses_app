@@ -72,14 +72,16 @@ class _NewTransactionState extends State<NewTransaction> {
             Container(
               margin: EdgeInsets.only(top: 14),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    _selectedDate == null
-                        ? "No Date Chosen"
-                        : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
-                    style: TextStyle(
-                      fontSize: 18,
+                  Expanded(
+                    child: Text(
+                      _selectedDate == null
+                          ? "No Date Chosen"
+                          : "Picked Date: ${DateFormat.yMd().format(_selectedDate)}",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
                   FlatButton(
@@ -87,7 +89,7 @@ class _NewTransactionState extends State<NewTransaction> {
                     child: Text(
                       "Select Date",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
