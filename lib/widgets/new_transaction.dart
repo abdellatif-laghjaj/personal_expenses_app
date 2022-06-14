@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 
 class NewTransaction extends StatefulWidget {
@@ -56,12 +57,33 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             Container(
               margin: EdgeInsets.only(top: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "No date selected",
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                  ),
+                  FlatButton(
+                    child: Text(
+                      "Select Date",
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 10),
               // ignore: deprecated_member_use
               child: RaisedButton(
                 onPressed: () => submitData(),
                 child: Text("Add Transaction"),
                 color: Theme.of(context).primaryColor,
-                textColor: Colors.white,
+                textColor: Theme.of(context).textTheme.button.color,
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(99),

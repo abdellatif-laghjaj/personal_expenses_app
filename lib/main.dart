@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
             fontFamily: "PoppinsMed",
             fontSize: 20,
           ),
+          button: TextStyle(color: Colors.white),
         ),
         appBarTheme: AppBarTheme(
             // ignore: deprecated_member_use
