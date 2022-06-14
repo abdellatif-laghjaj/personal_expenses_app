@@ -17,17 +17,21 @@ class _NewTransactionState extends State<NewTransaction> {
   DateTime _selectedDate;
 
   void _submitData() {
+    if (_amountControler.text.isEmpty) {
+      return;
+    }
     final enteredTitle = _titleControler.text;
     final enteredAmount = double.parse(_amountControler.text);
 
-    if (enteredTitle.isEmpty || enteredAmount <= 0) {
+    if (enteredTitle.isEmpty || enteredAmount <= 0 || _selectedDate == null) {
       return;
     }
 
-    widget.addTx(enteredTitle, enteredAmount);
+    widget.addTx(enteredTitle, enteredAmount, _selectedDate);
     //clear the text fields
     _titleControler.clear();
     _amountControler.clear();
+    _selectedDate = null;
     //close the bottom sheet
     Navigator.of(context).pop();
   }
