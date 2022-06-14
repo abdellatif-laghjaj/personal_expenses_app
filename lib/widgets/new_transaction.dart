@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class NewTransaction extends StatefulWidget {
   final Function addTx;
@@ -12,13 +12,13 @@ class NewTransaction extends StatefulWidget {
 }
 
 class _NewTransactionState extends State<NewTransaction> {
-  final titleControler = TextEditingController();
-
-  final amountControler = TextEditingController();
+  final _titleControler = TextEditingController();
+  final _amountControler = TextEditingController();
+  DateTime _selectedDate;
 
   void _submitData() {
-    final enteredTitle = titleControler.text;
-    final enteredAmount = double.parse(amountControler.text);
+    final enteredTitle = _titleControler.text;
+    final enteredAmount = double.parse(_amountControler.text);
 
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
@@ -26,8 +26,8 @@ class _NewTransactionState extends State<NewTransaction> {
 
     widget.addTx(enteredTitle, enteredAmount);
     //clear the text fields
-    titleControler.clear();
-    amountControler.clear();
+    _titleControler.clear();
+    _amountControler.clear();
     //close the bottom sheet
     Navigator.of(context).pop();
   }
@@ -38,7 +38,10 @@ class _NewTransactionState extends State<NewTransaction> {
       initialDate: DateTime.now(),
       firstDate: DateTime(2019),
       lastDate: DateTime.now(),
-    );
+    ).then((pickedDate) {
+      if (pickedDate == null) return;
+      _selectedDate = pickedDate;
+    });
   }
 
   @override
@@ -50,7 +53,7 @@ class _NewTransactionState extends State<NewTransaction> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             TextField(
-              controller: titleControler,
+              controller: _titleControler,
               onSubmitted: (_) => _submitData(),
               decoration: InputDecoration(
                 labelText: "Title",
@@ -58,7 +61,7 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             TextField(
               keyboardType: TextInputType.number,
-              controller: amountControler,
+              controller: _amountControler,
               onSubmitted: (_) => _submitData(),
               decoration: InputDecoration(
                 labelText: "Amount",
@@ -70,7 +73,9 @@ class _NewTransactionState extends State<NewTransaction> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "No date selected",
+                    _selectedDate == null
+                        ? "No Date Chosen"
+                        : DateFormat.yMd().format(_selectedDate),
                     style: TextStyle(
                       fontSize: 18,
                     ),
